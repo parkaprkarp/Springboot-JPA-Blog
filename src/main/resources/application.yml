@@ -1,0 +1,8 @@
+#yml은 xml이랑 프로퍼티스랑 비슷한거지만 json 형태처럼 만들수 있음
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?serverTimezone=Asia/Seoul
+    username: park
+    password: tldgk123
+server:  port: 8081 
