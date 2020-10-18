@@ -1,8 +1,35 @@
 #yml은 xml이랑 프로퍼티스랑 비슷한거지만 json 형태처럼 만들수 있음
+server:
+  port: 8083
+  servlet:
+    context-path: /blog    # 프로젝트명
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
 spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp # 뒤에 확장자명
+      
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/blog?serverTimezone=Asia/Seoul
     username: park
     password: tldgk123
-server:  port: 8081 
+    
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: create # 생성
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      use-new-id-generator-mappings: false # 시퀀스를 어떤방식으로 사용할지? false는 JPA에 기본 넘버링을 따라가지 않음
+    show-sql: true # 콘솔창 표시
+    properties:
+      hibernate.format_sql: true # 테이블 로그 정렬
+
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
